@@ -14,7 +14,7 @@ export default function Top(){
      }, [])
   return (
 
-    movies.slice(0,4).map((movieReq)=><MovieBox key ={movieReq.id} {...movieReq}/>)
+    movies.slice(0,10).map((movieReq)=><MovieBox key ={movieReq.id} {...movieReq}/>)
 
   );
 };
