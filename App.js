@@ -10,6 +10,7 @@ import Fav from "./screens/Fav";
 import Review from "./screens/Review";
 import User from "./screens/User";
 import Help from "./screens/Help";
+import Cinema from "./screens/Cinema";
 import React from "react";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -71,6 +72,17 @@ function DrawerRoutes() {
                     ),
                 }}
                 />
+                <Drawer.Screen name="Cinema" component={Cinema} options={{
+                                    title:'Kina w Kielcach',
+                                    drawerIcon:({focused, size}) => (
+                                    <IconAntDesign
+                                        name="eye"
+                                        size={size}
+                                        color={focused ? '#8d8e91' : '#0a0a0a'}
+                                    />
+                                    ),
+                                }}
+                                />
                 <Drawer.Screen name="User" component={User} options={{
                     title:'Panel Użytkownika',
                     drawerIcon:({focused, size}) => (
