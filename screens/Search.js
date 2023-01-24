@@ -7,7 +7,7 @@ const Search = () => {
    const API_IMG = "https://image.tmdb.org/t/p/w500";
    const [success,setSuccess] = useState(false);
    const [state,setState] = useState({
-   s: "Podaj film...",
+   s: "",
    results:[],
    });
 
@@ -22,18 +22,19 @@ const Search = () => {
        })
        }
   return (
-         <View>
+         <View style={styles.center} >
          <TextInput
+            style={styles.TextInput}
             onChangeText={text => setState(prevState => {
             return {...prevState, s:text}
             })}
             onSubmitEditing={search}
             value={state.s}
          />
-        <ScrollView>
-                    {success && state.results.slice(0,3).map(result =>(
+        <ScrollView style={styles.Scroll}  >
+                    {success && state.results.map(result =>(
                         <View key={result.id}>
-                            <Text>{result.title}</Text>
+                            <Text style={{color: 'black', fontSize: 15, fontFamily:'serif' }}>{result.title}</Text>
                             <Image source={{
                                         uri: API_IMG + result.poster_path,
                                         }}
@@ -48,14 +49,23 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
+    padding: 10,
   },
   tinyLogo: {
-      width: 100,
-      height: 140,
+      width: 120,
+      height: 160,
+      borderRadius: 5,
+    },
+  TextInput: {
+      backgroundColor: "grey",
+      width: "100%",
+      borderWidth: 1,
+      borderRadius: 10,
+      padding: 10,
+      textAlign: "center",
+    },
+    Scroll:{
+    marginLeft:10,
     },
 });
 
