@@ -5,6 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import Search from "./screens/Search";
+import Genre from "./screens/Genre";
 import Top from "./screens/Top";
 import Fav from "./screens/Fav";
 import Review from "./screens/Review";
@@ -40,6 +41,17 @@ function DrawerRoutes() {
                 ),
                 }}
                 />
+                <Drawer.Screen name="Genre" component={Genre} options={{
+                                    title:'Gatunki',
+                                    drawerIcon:({focused, size}) => (
+                                    <IconAntDesign
+                                        name="tags"
+                                        size={size}
+                                        color={focused ? '#8d8e91' : '#0a0a0a'}
+                                    />
+                                ),
+                                }}
+                                />
                 <Drawer.Screen name="Ranking" component={Top} options={{
                     title:'Top',
                     drawerIcon:({focused, size}) => (
@@ -76,7 +88,7 @@ function DrawerRoutes() {
                                     title:'Kina w Kielcach',
                                     drawerIcon:({focused, size}) => (
                                     <IconAntDesign
-                                        name="eye"
+                                        name="find"
                                         size={size}
                                         color={focused ? '#8d8e91' : '#0a0a0a'}
                                     />
