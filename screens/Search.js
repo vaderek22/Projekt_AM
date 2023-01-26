@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { View, StyleSheet, Text, TextInput,ScrollView,Image} from "react-native";
-
+import { View, StyleSheet, Text, TextInput,ScrollView,Image, TouchableOpacity} from "react-native";
+import { useNavigation } from '@react-navigation/native';
 const Search = () => {
-   const apiurl="https://api.themoviedb.org/3/search/movie?api_key=8339d23b0d359649d6e79b1aad386819";
+   const apiurl="https://api.themoviedb.org/3/search/movie?api_key=8339d23b0d359649d6e79b1aad386819&language=pl";
    const API_IMG = "https://image.tmdb.org/t/p/w500";
+   const navigation = useNavigation();
    const [success,setSuccess] = useState(false);
    const [state,setState] = useState({
    s: "",
@@ -14,7 +15,6 @@ const Search = () => {
    const search = () => {
        axios(apiurl + "&query="+ state.s).then(({ data }) => {
            let results = data.results;
-           console.log(data);
            setState(prevState => {
                return{...prevState, results: results }
            })
@@ -35,11 +35,13 @@ const Search = () => {
                     {success && state.results.map(result =>(
                         <View key={result.id}>
                             <Text style={{color: 'black', fontSize: 15, fontFamily:'serif' }}>{result.title}</Text>
+                            <TouchableOpacity key={result.id} onPress={() => navigation.navigate('MovieDetails', { movie: result })}>
                             <Image source={{
                                         uri: API_IMG + result.poster_path,
                                         }}
                                         style={styles.tinyLogo}
                                         />
+                            </TouchableOpacity>
                         </View>
                     ))}
                 </ScrollView>
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
       textAlign: "center",
     },
     Scroll:{
-    marginLeft:10,
+    marginLeft:'30%',
     },
 });
 
