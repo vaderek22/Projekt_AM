@@ -12,6 +12,9 @@ import Review from "./screens/Review";
 import User from "./screens/User";
 import Help from "./screens/Help";
 import Cinema from "./screens/Cinema";
+import MovieDetails from "./screens/MovieDetails";
+import Scaner from "./screens/Scaner";
+import Result from "./screens/Result";
 import React from "react";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,8 +33,8 @@ function DrawerRoutes() {
                 />
                 ),
                 }} />
-                <Drawer.Screen name="Wyszukaj" component={Search} options={{
-                    title:'Search',
+                <Drawer.Screen name="Search" component={Search} options={{
+                    title:'Wyszukaj',
                     drawerIcon:({focused, size}) => (
                     <IconAntDesign
                         name="search1"
@@ -62,6 +65,17 @@ function DrawerRoutes() {
                     />
                     ),
                 }} />
+                <Drawer.Screen name="Scaner" component={Scaner} options={{
+                    title:'Skaner',
+                    drawerIcon:({focused, size}) => (
+                    <IconAntDesign
+                        name="camera"
+                        size={size}
+                        color={focused ? '#8d8e91' : '#0a0a0a'}
+                    />
+                    ),
+                }}
+                />
                 <Drawer.Screen name="Ulubione" component={Fav} options={{
                     title:'Moja lista',
                     drawerIcon:({focused, size}) => (
@@ -95,17 +109,6 @@ function DrawerRoutes() {
                                     ),
                                 }}
                                 />
-                <Drawer.Screen name="User" component={User} options={{
-                    title:'Panel Użytkownika',
-                    drawerIcon:({focused, size}) => (
-                    <IconAntDesign
-                        name="user"
-                        size={size}
-                        color={focused ? '#8d8e91' : '#0a0a0a'}
-                    />
-                    ),
-                }}
-                />
                 <Drawer.Screen name="Pomoc" component={Help} options={{
                     title:'Pomoc',
                     drawerIcon:({focused, size}) => (
@@ -126,6 +129,8 @@ function App() {
         <Stack.Navigator>
                 <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
                 <Stack.Screen name="Home" component={DrawerRoutes} options={{headerShown: false}}/>
+                <Stack.Screen name="MovieDetails" component={MovieDetails} options={{headerShown: false}}/>
+                <Stack.Screen name="Result" component={Result} options={{headerShown: false}}/>
          </Stack.Navigator>
     </NavigationContainer>
   );
