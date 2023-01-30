@@ -49,13 +49,13 @@ return (
                 <TextInput
                     style={styles.modalTextInput}
                     placeholder="Username"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="black"
                     onChangeText={(username) => setUsername(username)}
                 />
                 <TextInput
                     style={styles.modalTextInput}
                     placeholder="Password"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="black"
                     secureTextEntry={true}
                     onChangeText={(userpassword) => setUserpassword(userpassword)}
                 />
@@ -76,7 +76,7 @@ return (
             style={styles.TextInput}
             placeholder="Login"
             value={login}
-            placeholderTextColor="#003f5c"
+            placeholderTextColor="black"
             onChangeText={(login) => setLogin(login)}
         />
     </View>
@@ -85,7 +85,7 @@ return (
             style={styles.TextInput}
             placeholder="Password"
             value={password}
-            placeholderTextColor="#003f5c"
+            placeholderTextColor="black"
             secureTextEntry={true}
             onChangeText={(password) => setPassword(password)}
             />
@@ -108,20 +108,21 @@ const styles = StyleSheet.create({
           flex: 1,
           backgroundColor: "#fff",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: 'center',
       },
       modalContainer: {
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
       },
       modalView: {
           width: "80%",
-          backgroundColor: "#fff",
+          backgroundColor: "#d0e7f7",
           padding: 20,
           borderRadius: 20,
           alignItems: "center",
+          borderWidth: 1,
+          borderColor: "#49aaee",
       },
       modalText: {
           fontSize: 20,
@@ -133,8 +134,9 @@ const styles = StyleSheet.create({
           padding: 10,
           marginBottom: 20,
           borderWidth: 1,
-          borderColor: "#ccc",
+          borderColor: "#49aaee",
           borderRadius: 10,
+          backgroundColor: "#fff",
       },
       modalBtnContainer: {
           flexDirection: "row",
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
           alignItems: "center",
       },
       modalBtnText: {
-          color: "#fff",
+          color: "#black",
       },
       image: {
           marginBottom: 40,
@@ -161,34 +163,35 @@ const styles = StyleSheet.create({
           justifyContent: 'center'
       },
       inputView: {
-          backgroundColor: "#fa5c66",
-          borderRadius: 30,
-          width: "70%",
-          height: 45,
+          width: "80%",
+          backgroundColor: "#d0e7f7",
+          borderRadius: 25,
+          height: 50,
           marginBottom: 20,
-          alignItems: "center",
+          justifyContent: 'center',
+          borderWidth: 2,
+          borderColor: '#49aaee',
       },
       TextInput: {
           height: 50,
-          flex: 1,
-          padding: 10,
-          marginLeft: 20,
+          color: "#003f5c",
+          textAlign: 'center',
       },
       btn: {
-          alignItems: 'center',
-          justifyContent: 'center',
-          paddingVertical: 12,
-          paddingHorizontal: 32,
-          borderRadius: 30,
-          backgroundColor: '#49aaee',
+          width: '40%',
+          backgroundColor: "#49aaee",
+          borderRadius: 25,
+          height: 50,
+          alignItems: "center",
+          justifyContent: "center",
       },
       registerBtn: {
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: 20,
-            paddingVertical: 12,
-            paddingHorizontal: 32,
-            borderRadius: 30,
-            backgroundColor: '#49aaee',
+          width: '40%',
+          backgroundColor: "#49aaee",
+          borderRadius: 25,
+          height: 50,
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 10,
       },
 });
