@@ -21,7 +21,6 @@ export default function MovieDetails({ route }) {
                 const foundDirector = res.data.crew.find(member => member.job === "Director");
                 if(foundDirector) setDirector(foundDirector);
             })
-            .catch(error => console.log(error));
         axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=8339d23b0d359649d6e79b1aad386819`)
             .then(res => {
                 setActors(res.data.cast.slice(0, 10));
@@ -45,7 +44,7 @@ export default function MovieDetails({ route }) {
                     <IconAntDesign
                             name="star"
                             size={15}
-                            color={'#0a0a0a'}
+                            color={'#49aaee'}
                         />{movie.vote_average}</Text>
                     <Text style={styles.rate}>Data wydania: {movie.release_date}</Text>
                     {genre.length > 0 && <Text style={styles.rate}>Gatunek: {genre.slice(0,4).map(g => g.name).join(', ')}</Text>}
