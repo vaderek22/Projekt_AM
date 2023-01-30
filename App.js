@@ -7,10 +7,6 @@ import Home from "./screens/Home";
 import Search from "./screens/Search";
 import Genre from "./screens/Genre";
 import Top from "./screens/Top";
-import Fav from "./screens/Fav";
-import Review from "./screens/Review";
-import User from "./screens/User";
-import Help from "./screens/Help";
 import Cinema from "./screens/Cinema";
 import MovieDetails from "./screens/MovieDetails";
 import Scaner from "./screens/Scaner";
@@ -76,28 +72,6 @@ function DrawerRoutes() {
                     ),
                 }}
                 />
-                <Drawer.Screen name="Ulubione" component={Fav} options={{
-                    title:'Moja lista',
-                    drawerIcon:({focused, size}) => (
-                    <IconAntDesign
-                        name="heart"
-                        size={size}
-                        color={focused ? '#8d8e91' : '#0a0a0a'}
-                    />
-                    ),
-                }}
-                />
-                <Drawer.Screen name="Recenzje" component={Review} options={{
-                    title:'Recenzje',
-                    drawerIcon:({focused, size}) => (
-                    <IconAntDesign
-                        name="eye"
-                        size={size}
-                        color={focused ? '#8d8e91' : '#0a0a0a'}
-                    />
-                    ),
-                }}
-                />
                 <Drawer.Screen name="Cinema" component={Cinema} options={{
                                     title:'Kina w Kielcach',
                                     drawerIcon:({focused, size}) => (
@@ -109,23 +83,13 @@ function DrawerRoutes() {
                                     ),
                                 }}
                                 />
-                <Drawer.Screen name="Pomoc" component={Help} options={{
-                    title:'Pomoc',
-                    drawerIcon:({focused, size}) => (
-                    <IconAntDesign
-                        name="question"
-                        size={size}
-                        color={focused ? '#8d8e91' : '#0a0a0a'}
-                    />
-                    ),
-                }}
-                />
          </Drawer.Navigator>
   );
 }
 function App() {
   return (
     <NavigationContainer>
+    <StatusBar backgroundColor="#49aaee" />
         <Stack.Navigator>
                 <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
                 <Stack.Screen name="Home" component={DrawerRoutes} options={{headerShown: false}}/>
