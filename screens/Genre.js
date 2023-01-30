@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, Button,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-
 const Genre = () => {
     const [movies, setMovies] = useState([]);
     const navigation = useNavigation();
@@ -20,42 +19,42 @@ useEffect(() => {
 
 return (
 <View style={styles.container}>
-    <View style={styles.buttonsContainer}>
+    <ScrollView horizontal={true} style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
-            <Button title="Akcja" color="#555" onPress={() => handleGenre(28)}/>
+            <Button title="Akcja" color="#49aaee" onPress={() => handleGenre(28)}/>
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Komedia" color="#555" onPress={() => handleGenre(35)} />
+            <Button title="Komedia" color="#49aaee" onPress={() => handleGenre(35)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Kryminał" color="#555" onPress={() => handleGenre(80)} />
+            <Button title="Kryminał" color="#49aaee" onPress={() => handleGenre(80)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Przygoda" color="#555" onPress={() => handleGenre(12)} />
+            <Button title="Przygoda" color="#49aaee" onPress={() => handleGenre(12)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Animacja" color="#555" onPress={() => handleGenre(16)} />
+            <Button title="Dokumentalny" color="#49aaee" onPress={() => handleGenre(99)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Science Fiction" color="#555" onPress={() => handleGenre(878)} />
+            <Button title="Historyczny" color="#49aaee" onPress={() => handleGenre(36)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Dokumentalny" color="#555" onPress={() => handleGenre(99)} />
+            <Button title="Western" color="#49aaee" onPress={() => handleGenre(37)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Historyczny" color="#555" onPress={() => handleGenre(36)} />
+            <Button title="Animacja" color="#49aaee" onPress={() => handleGenre(16)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Western" color="#555" onPress={() => handleGenre(37)} />
+            <Button title="Science Fiction" color="#49aaee" onPress={() => handleGenre(878)} />
         </View>
         <View style={styles.buttonContainer}>
-            <Button title="Horror" color="#555" onPress={() => handleGenre(27)} />
+            <Button title="Horror" color="#49aaee" onPress={() => handleGenre(27)} />
         </View>
-    </View>
+    </ScrollView>
     {movies && (
-        <ScrollView>
-        {movies.map(movie => (
-            <View key={movie.id} style={styles.movieContainer}>
+        <ScrollView style={styles.moviesScroll}>
+        {movies.map((movie, index) => (
+            <View key={movie.id} style={index%2 === 0 ? styles.alternateMovieContainer:styles.movieContainer}>
             <TouchableOpacity key={movie.id} onPress={() => navigation.navigate('MovieDetails', { movie: movie })}>
             <Image
             style={styles.moviePoster}
@@ -74,38 +73,47 @@ return (
 };
 
 const styles = StyleSheet.create({
-container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-},
-movieContainer: {
-    marginRight: 10,
-    alignItems: "center",
-    justifyContent: "center",
-},
-buttonsContainer: {
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    buttonsContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
-        padding: 5,
+        width: '100%',
+        height: 42,
+        backgroundColor: '#d0e7f7',
     },
-buttonContainer: {
-   width: '20%',
-   marginBottom: 5,
+    buttonContainer: {
+        padding: 2,
+        height: 40,
     },
-moviePoster: {
-    width: 150,
-    height: 250,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-},
+    movieContainer: {
+        alignItems: 'center',
+        width: '100%',
+    },
+    moviesScroll: {
+        width: '100%',
+    },
+    moviePoster: {
+        width: 150,
+        height: 225,
+        borderRadius: 10,
+        marginTop: 5,
+    },
     movieTitle: {
-    fontSize: 16,
-    marginTop: 10,
-    textAlign: 'center'
-    }
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 10,
+        textAlign: 'center',
+    },
+    alternateMovieContainer: {
+        alignItems: 'center',
+        backgroundColor: '#ccc',
+        width: '100%',
+    },
 });
 
 export default Genre;
