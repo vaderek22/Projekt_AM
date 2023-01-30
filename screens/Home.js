@@ -20,7 +20,7 @@ useEffect(() => {
 }, []);
   return (
     <View style={styles.center}>
-    <Text style={styles.Text}>Witaj, sprawdź nasze propozycje na dziś</Text>
+    <Text style={styles.Text}>Witaj! Sprawdź nasze propozycje na dziś.</Text>
      <ScrollView horizontal={true}>
           {movies.map((movie, index) => (
             <View key={index} style={styles.movieContainer}>
@@ -45,14 +45,17 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        paddingLeft: 15,
   },
   Text: {
-       color: 'black',
-       fontSize: 14,
-       fontFamily:'serif',
-       paddingTop:30,
-       paddingBottom:30,
+    color: '#49aaee',
+    fontSize: 16,
+    fontFamily:'serif',
+    paddingTop:30,
+    paddingBottom:30,
+    fontWeight: 'bold',
+    textShadowColor: '#d0e7f7',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 1,
   },
   movieContainer: {
        marginRight: 10,
