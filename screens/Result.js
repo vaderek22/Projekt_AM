@@ -23,7 +23,7 @@ const Result = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={{color: 'black', fontSize: 19, fontFamily:'serif' }}>Data premiery: {movieDate}</Text>
+      <Text style={styles.Text}>Data premiery: {movieDate}</Text>
     </View>
   );
 };
@@ -34,6 +34,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  Text: {
+        color: '#49aaee',
+        fontSize: 16,
+        fontFamily:'serif',
+        paddingBottom:30,
+        fontWeight: 'bold',
+        textShadowColor: '#d0e7f7',
+        textShadowOffset: { width: 2, height: 2 },
+        textShadowRadius: 1,
+      },
 });
 
 export default Result;
