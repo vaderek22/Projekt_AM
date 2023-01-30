@@ -34,13 +34,13 @@ const Scaner = () => {
   if (scanned) {
     return (
       <View style={styles.container}>
-        <Button title={'Skanuj ponownie'} color="#555" onPress={handleScanAgain}/>
+        <Button title={'Skanuj ponownie'} color="#49aaee" onPress={handleScanAgain}/>
       </View>
     );
   } else {
     return (
       <View style={styles.container}>
-      <Text>Sprawdź datę produkcji filmu</Text>
+      <Text style={styles.Text}>Zeskanuj kod QR z plakatu</Text>
         <BarCodeScanner
           onBarCodeScanned={handleBarCodeScanned}
           style={styles.scanner}
@@ -57,9 +57,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   scanner: {
-    width: '50%',
-    height: '50%',
+    width: '80%',
+    height: '80%',
   },
+    Text: {
+      color: '#49aaee',
+      fontSize: 16,
+      fontFamily:'serif',
+      paddingBottom:30,
+      fontWeight: 'bold',
+      textShadowColor: '#d0e7f7',
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 1,
+    },
 });
 
 export default Scaner;
